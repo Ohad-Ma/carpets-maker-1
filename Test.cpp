@@ -140,6 +140,8 @@ TEST_CASE("Fractions ROWS & COLS"){
     CHECK_THROWS(mat(a,b,symbA,symbB)); // positive float * negative float
     CHECK_THROWS(mat(b,a,symbA,symbB)); // negative float * positive float
 
+    
+
 }
 
 TEST_CASE("Good input") {
