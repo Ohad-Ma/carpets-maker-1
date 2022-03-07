@@ -18,7 +18,7 @@ char randomSymbol(); // generates random special character
 int oddIntegerGenerator(bool type); // generates random odd number (negative/positive)
 int evenIntegerGenerator(bool type); // generates random even number (negative/positive)
 
-char symbA = randomSymbol(), symbB = randomSymbol();
+char symbA = randomSymbol(), symbB = randomSymbol(); // generates random special character
 
 int even_number1 = evenIntegerGenerator(true), even_number2 = evenIntegerGenerator(true), nega_even_number1 = evenIntegerGenerator(false), nega_even_number2 = evenIntegerGenerator(false); 
 int odd_number1 = oddIntegerGenerator(true), odd_number2 = oddIntegerGenerator(true), nega_odd_number1 = oddIntegerGenerator(false), nega_odd_number2 = oddIntegerGenerator(false);
