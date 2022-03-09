@@ -139,6 +139,27 @@ TEST_CASE("Fractions ROWS & COLS"){
 
 }
 
+TEST_CASE("Forbidden chars"){
+    CHECK_THROWS(mat(odd_number1,'\n',symbA,symbB));
+    CHECK_THROWS(mat('\n',odd_number1,symbA,symbB));
+    CHECK_THROWS(mat(odd_number1,' ',symbA,symbB));
+    CHECK_THROWS(mat(' ',odd_number1,symbA,symbB));
+    CHECK_THROWS(mat(odd_number1,'\t',symbA,symbB));
+    CHECK_THROWS(mat('\t',odd_number1,symbA,symbB));
+    CHECK_THROWS(mat(odd_number1,'\n',symbA,symbB));
+    CHECK_THROWS(mat('\n',odd_number1,symbA,symbB));
+    CHECK_THROWS(mat(odd_number1,'\r',symbA,symbB));
+    CHECK_THROWS(mat('\r',odd_number1,symbA,symbB));
+    CHECK_THROWS(mat(odd_number1,EOF,symbA,symbB));
+    CHECK_THROWS(mat(EOF,odd_number1,symbA,symbB));
+    CHECK_THROWS(mat('r','\n',symbA,symbB));
+    CHECK_THROWS(mat('\n','\r',symbA,symbB));
+    CHECK_THROWS(mat('\n','\r',' ',symbB));
+    CHECK_THROWS(mat('\n','\r',symbA,' '));
+    CHECK_THROWS(mat('\n','\r','\n','\n'));
+    
+}
+
 TEST_CASE("Good input") {
     CHECK(no_spaces(mat(9, 7, '@', '-')) == no_spaces("@@@@@@@@@@@@@\n@-----------@\n@-@@@@@@@@@-@\n@-----------@\n@@@@@@@@@@@@@"));
     CHECK(no_spaces(mat(13, 5, '@', '-')) == no_spaces("@@@@@@@@@\n@-------@\n@-@@@@@-@\n@-@---@-@\n@-@@@@@-@\n@-------@\n@@@@@@@@@"));
