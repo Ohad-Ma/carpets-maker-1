@@ -80,13 +80,17 @@ TEST_CASE("Special characters arguments"){
     int odd_number1 = oddIntegerGenerator(true), odd_number2 = oddIntegerGenerator(true), nega_odd_number1 = oddIntegerGenerator(false), nega_odd_number2 = oddIntegerGenerator(false);
      int even_number1 = evenIntegerGenerator(true), even_number2 = evenIntegerGenerator(true), nega_even_number1 = evenIntegerGenerator(false), nega_even_number2 = evenIntegerGenerator(false);
     char symbA = randomSymbol(), symbB = randomSymbol(); // generates random special character
-    CHECK_NOTHROW(mat(odd_number1,odd_number1,odd_number1,odd_number1));
-    CHECK_THROWS(mat(even_number1,odd_number1,odd_number1,symbB));
-    CHECK_THROWS(mat(odd_number1,nega_odd_number1,odd_number1,symbB));
-    CHECK_NOTHROW(mat(odd_number1,odd_number1,symbA,odd_number1)); // should print symbA filled matrix size of b*b
-    CHECK_THROWS(mat(nega_odd_number1,nega_odd_number1,odd_number1,symbB));
-    CHECK_THROWS(mat(odd_number1,nega_odd_number2,symbA,symbB));
-    CHECK_NOTHROW(mat(odd_number1,odd_number1,symbA,symbA)); // should work? haven't received clear instruction about same symbol
+    // CHECK_THROWS(mat(odd_number1,nega_odd_number1,odd_number1,symbB));
+    // CHECK_NOTHROW(mat(odd_number1,odd_number1,symbA,odd_number1)); // should print symbA filled matrix size of b*b
+    // CHECK_THROWS(mat(nega_odd_number1,nega_odd_number1,odd_number1,symbB));
+    CHECK_THROWS(mat(odd_number1,nega_odd_number2,'\n',symbB));
+     CHECK_THROWS(mat(odd_number1,odd_number2,symbA,'\n'));
+     CHECK_THROWS(mat(odd_number1,odd_number2,'\n','\n'));
+         CHECK_THROWS(mat(odd_number1,odd_number2,symbA,'\t'));
+     CHECK_THROWS(mat(odd_number1,odd_number2,'\t','\n'));
+         CHECK_THROWS(mat(odd_number1,odd_number2,symbA,'\r'));
+     CHECK_THROWS(mat(odd_number1,odd_number2,' ','\r'));
+    // CHECK_NOTHROW(mat(odd_number1,odd_number1,symbA,symbA)); // should work? haven't received clear instruction about same symbol
 }
 
 /**
