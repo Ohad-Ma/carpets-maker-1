@@ -80,7 +80,6 @@ TEST_CASE("Special characters arguments"){
     int odd_number1 = oddIntegerGenerator(true), odd_number2 = oddIntegerGenerator(true), nega_odd_number1 = oddIntegerGenerator(false), nega_odd_number2 = oddIntegerGenerator(false);
      int even_number1 = evenIntegerGenerator(true), even_number2 = evenIntegerGenerator(true), nega_even_number1 = evenIntegerGenerator(false), nega_even_number2 = evenIntegerGenerator(false);
     char symbA = randomSymbol(), symbB = randomSymbol(); // generates random special character
-    CHECK_NOTHROW(mat(odd_number1,odd_number1,nega_odd_number1,odd_number1));
     CHECK_NOTHROW(mat(odd_number1,odd_number1,odd_number1,odd_number1));
     CHECK_THROWS(mat(even_number1,odd_number1,odd_number1,symbB));
     CHECK_THROWS(mat(odd_number1,nega_odd_number1,odd_number1,symbB));
